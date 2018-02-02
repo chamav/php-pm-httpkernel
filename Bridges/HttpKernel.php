@@ -104,7 +104,7 @@ class HttpKernel implements BridgeInterface
 
         $response = $this->mapResponse($syResponse);
 
-        if ($this->application instanceof TerminableInterface) {
+        if ($this->application instanceof TerminableInterface || $this->application instanceof \Illuminate\Contracts\Http\Kernel ) {
             $this->application->terminate($syRequest, $syResponse);
         }
         
